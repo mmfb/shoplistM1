@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.get('/:shoplistId/items', function(req, res, next) {
     console.log(req.params.shoplistId);
-    res.send(["Batatas","Cebolas","Pão"]);
+    res.send(["Batatas","Cebolas","Pão", Math.random()]);
 });
 
 module.exports = router;
