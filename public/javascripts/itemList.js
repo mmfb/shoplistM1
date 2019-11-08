@@ -3,7 +3,7 @@ var shoplistId = 1;
 
 window.onload = function () {
     var itemListElem = document.getElementById("itemList");
-    var intId = setInterval(getShoplistItems, 1000);
+    var intId = setInterval(getShoplistItems, 3000);
 
     function getShoplistItems() {
         $.ajax({
