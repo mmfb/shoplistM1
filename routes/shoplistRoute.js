@@ -1,18 +1,22 @@
 var express = require('express');
 var router = express.Router();
+var shoplistsDAO = require("../models/shoplistsDAO");
 
-var items = ["Batatas","Cebolas","Pão"];
 
 router.get('/:shoplistId/items', function(req, res, next) {
     console.log(req.params.shoplistId);
-    res.send(items);
+   shoplistsDAO.getItems(req.params.shoplistId, function(items) {
+        res.send(items);
+   })
 });
 
 router.post('/:shoplistId/items', function(req, res, next) {
     var data = req.body;
     console.log(data);
-    items.push( data.item );
-    res.send({status:"ok"});
+    shoplistsDAO.saveItem(req.params.shoplistId,data.item,
+        function(result) {
+            res.send(result);
+        })    
 });
 
 module.exports = router;

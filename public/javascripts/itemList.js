@@ -4,7 +4,8 @@ var shoplistId = 1;
 window.onload = function () {
     var itemListElem = document.getElementById("itemList");
     var intId = setInterval(getShoplistItems, 3000);
-
+    getShoplistItems();
+    
     function getShoplistItems() {
         $.ajax({
             url: "/api/shoplists/" + shoplistId + "/items/",
